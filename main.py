@@ -12,7 +12,10 @@ model = genai.GenerativeModel('models/gemini-pro')
 if "chat" not in st.session_state:
     st.session_state.chat = model.start_chat(history=[])
 
-#display tittle
+st.set_page_config(page_title="Chat with Gemini Pro", page_icon=":robot")
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 st.title("Chat With *Gemini-Pro*")
 
 def role_to_streamlit(role):
